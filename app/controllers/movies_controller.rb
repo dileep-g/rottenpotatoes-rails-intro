@@ -14,7 +14,7 @@ class MoviesController < ApplicationController
     session[:order] = params[:order] unless params[:order].nil?
     session[:ratings] = params[:ratings] unless params[:ratings].nil? || params[:ratings].empty?
     rating_filters = []
-    unless session[:ratings]
+    unless session[:ratings].nil?
       rating_filters = session[:ratings].keys
     else
       rating_filters = Movie.all_ratings
