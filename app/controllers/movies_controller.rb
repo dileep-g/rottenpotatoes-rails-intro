@@ -25,7 +25,7 @@ class MoviesController < ApplicationController
     @checked_filters = rating_filters
     @sortby = session[:order]
 
-    redirect_to movies_path order: flash[:order], ratings: flash[:ratings] if (params[:order].nil? || params[:ratings].nil?) && (session[:order] || session[:ratings])
+    redirect_to movies_path order: session[:order], ratings: session[:ratings] if (params[:order].nil? || params[:ratings].nil?) && (session[:order] || session[:ratings])
   end
 
   def new
