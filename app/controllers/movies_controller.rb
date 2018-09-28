@@ -23,6 +23,7 @@ class MoviesController < ApplicationController
     @all_ratings = Movie.all_ratings
     @checked_filters = rating_filters
     @sortby = session[:order]
+    redirect_to movies_path
   end
 
   def new
