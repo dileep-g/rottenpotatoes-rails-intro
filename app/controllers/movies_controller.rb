@@ -11,8 +11,8 @@ class MoviesController < ApplicationController
   end
 
   def index
-    rating_filters = params[:ratings].keys
-    unless rating_filters.length == 0
+    unless params[:ratings].nil? || params[:ratings].empty?
+      rating_filters = params[:ratings].keys
       @movies = Movie.where({rating: rating_filters}).order(params[:order])
     else
       @movies = Movie.all.order(params[:order])
