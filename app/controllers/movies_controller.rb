@@ -23,7 +23,7 @@ class MoviesController < ApplicationController
     @all_ratings = Movie.all_ratings
     @checked_filters = rating_filters
     @sortby = session[:order]
-    redirect_to movies_path
+    redirect_to movies_path order: session[:order], ratings: session[:ratings] if params[:order].nil? || params[:ratings].nil?
   end
 
   def new
